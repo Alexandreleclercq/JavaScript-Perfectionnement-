@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 38</title>
+		<script type="text/javascript">
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Réécrivez l'exercice précédent en utilisant 
+				une boucle for (avec tableau['length']);
+			*/
+
+			// let i = 0;
+			let total = 0;
+			let x = function() {
+				for (let i=0; i<arguments['length']; i++) {
+					total += arguments[i];
+					// i++;
+				};
+				alert(`La moyenne des chiffres ou nombres entrés est : ${parseInt(total/arguments['length'])}.`);
+				return total/arguments['length'];
+			};
+			let start = x(231,485,585,12,354,458,699);
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

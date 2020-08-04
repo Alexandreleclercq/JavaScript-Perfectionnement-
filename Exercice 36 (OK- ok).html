@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 36</title>
+		<script type="text/javascript">
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				Une fonction peut accepter plusieurs arguments. 
+				Parmi les arguments, il est possible de fournir 
+				une fonction qui sera utilisée dans la fonction.
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+			** 1 **
+				Réalisez le programme (algorithme) suivant :
+				a) Créez un tableau contenant 4 nombres.
+				b) Créez deux fonctions. L'une retourne l'addition des 
+				arguments fournis en entrée et l'autre la multiplication 
+				des arguments fournis.
+				c) Une troisième fonction qui boucle le tableau utilise 
+				la fonction d'addition ou la fonction de multiplication 
+				qui lui est fournie.
+				d) Dans une Boite de dialogue, demandez à l'utilisateur 
+				s'il souhaite une addition ou une multiplication.
+				e) Affichez le résultat de l'opération dans une 
+				Boite de dialogue.
+
+				Utilisez une boucle for, un bloc if/else, 
+				les fonctions confirm() et alert().
+			*/
+			"use strict"
+			// Version différente demandant 4 inputs de l'utilisateur :
+
+			let arr = [];
+			for (let i=0; i<4; i++) {
+				let question = prompt(`Merci d'entrer un nombre ou un chiffre (4 demandes) : `)
+				while (question == null || question == '' || isNaN(parseFloat(question))) {
+					question = prompt(`Merci d'entrer un NOMBRE ou un CHIFFRE :`);
+				};
+				arr[i] = parseFloat(question); 
+			};
+			alert(`Vous avez saisi les chiffres/nombres : ${arr.join(' ')}.`);
+			
+			let sum = function(x, y) {
+				let addition = x + y;
+				alert(`Le total de l'addition de tous les nombres du tableau équivaut à ${addition}.`)
+			};
+			// Dans la version différente, l'opération ne s'exécute pas bien. 
+			// Pour 1,2,3,4 j'obtiens 10234 au lieu de 10 Pourquoi ?
+			// Réponse : c'est à cause du fait qu'il manquait parseFloat dans l'envoi de la réponse.
+			
+			let multiply = function(x, y) {
+				let multiplication = x * y;
+				alert(`Le total de la multiplication de tous les nombres du tableau équivaut à ${multiplication}.`)
+			};
+			
+			let answer = function(operation) {
+				let total = 0;
+				for (let i=1; i<arr['length']; i++) {
+					total += arr[i];
+				};
+				operation(arr[0], total);
+			};
+			
+			if (arr['length'] === 4) {
+				let choice = confirm(`Cliquez sur OK pour additionner, ou sur ANNULER pour multiplier !`);
+				if (choice) {
+					let add = answer(sum);
+				} else {
+					let mult = answer(multiply);
+				};	
+			};
+			
+			// Version standard de l'exercice :
+
+			// const arr = [33, 66, 99, 122];
+			// const question = confirm(`Cliquez sur OK pour additionner, ou sur ANNULER pour multiplier !`);
+
+			// let sum = function(x, y) {
+			// 	let addition = x + y;
+			// 	alert(`Le total de l'addition de tous les nombres du tableau équivaut à ${addition}.`)
+			// };
+			
+			// let multiply = function(x, y) {
+			// 	let multiplication = x * y;
+			// 	alert(`Le total de la multiplication de tous les nombres du tableau équivaut à ${multiplication}.`)
+			// };
+			
+			// let answer = function(operation) {
+			// 	let total = 0;
+			// 	for (let i=1; i<arr['length']; i++) {
+			// 		total += arr[i];
+			// 	};
+			// 	operation(arr[0], total);
+			// };
+			
+			// if (question) {
+			// 	let add = answer(sum);
+			// } else {
+			// 	let mult = answer(multiply);
+			// };
+
+			/*
+			** 2 **
+				On peut connaître le nombre d'entrée d'un 
+				tableau de la façon suivante :
+				var monTableau = ['soleil',15,'pluie'];
+				alert(monTableau['length']); //affiche 3;
+				Modifiez la boucle de cet exercice en 
+				utilisant ['length'].
+			*/
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

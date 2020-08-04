@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 39</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Réalisez le programme (algorithme) suivant :
+				a) Affichez une boite de dialogue à l'utilisateur 
+				lui demandant un nombre. 
+				Tant qu'il saisit un nombre, demandez-lui un autre 
+				nombre. 
+				L'ensemble des réponses doit être enregistrée dans 
+				une seule variable.
+				b) Si l'utilisateur a saisi au-moins un nombre, faites 
+				la moyenne du/des nombre(s) saisi(s) en utilisant 
+				une boucle for.
+			*/
+			// Pitch de 7 secondes :
+
+			// Bonjour ! Je m'appelle Alexandre Masson, je suis développeur full stack JavaScript et NodeJS. Par mes compétences techniques et commerciales, je saurai donner vie à vos projets web.
+
+			// Pitch de 30 secondes :
+
+			// Bonjour ! Je m'appelle Alexandre Masson, je suis développeur full stack JavaScript et NodeJS, passionné par la résolution de problèmes et l'univers du jeu vidéo.
+
+			// Avant de me lancer dans le développement d'applications web, j'étais directeur adjoint.
+
+			// C'est en combinant mes compétences de programmation et celles acquises dans ma première partie de carrière que je saurai vous accompagner dans la réalisation de tous vos projets web !
+
+
+			let lancement = function(msg1, msg2, conf1, conf2) {
+				var reponses = [];
+				let i = 0;
+				let reponse = null;
+				while (reponse == null || reponse == '' || isNaN(reponse)) {
+					reponse = prompt(msg1);
+				};
+				while (reponse != null && reponse != '' && parseFloat(reponse)) {
+					reponses[i] = parseFloat(reponse);
+					i++;
+					reponse = prompt(msg2);
+				};
+				// On alerte l'utilisateur avec les valeurs qu'il a saisies
+				alert(conf1 + reponses.join(' ') + '.');
+				// On fait en sorte qu'il y ait assez de réponses pour lancer le calcul
+				if (reponses['length'] >= 1) {
+					let sum = 0;
+					if (reponses['length'] == 1) {
+						sum = reponses;
+					} else {
+						for (let j=1;j<reponses['length'];j++) {
+							sum = reponses[0] += reponses[j];
+						};
+					};
+					let result = sum/reponses['length']
+					// On alerte l'utilisateur du résultat du calcul
+					alert(conf2 + result + '.');
+				};
+			};
+			lancement(`Veuillez s'il vous plaît entrer un nombre ou un chiffre (uniquement) :`, `Entrez à nouveau un nombre, ou cliquez sur OK ou Annuler pour lancer l'opération de calcul de la moyenne :`, `Vous avez saisi les nombres ou chiffres suivants : `, `La moyenne des nombres saisis est : `);
+
+
+			// Marc a dit qu'on doit utiliser parseFloat() et isNaN() pour vérifier si la saisie est bien un nombre. Il a également dit que la boucle for devait servir à additionner les valeurs du tableau
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

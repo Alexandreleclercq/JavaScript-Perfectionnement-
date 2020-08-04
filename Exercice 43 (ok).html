@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 43</title>
+		<script type="text/javascript">
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				La fonction parseInt() renvoie la valeur 
+				entière d'un nombre. Par exemple, 
+				parseInt(4.7) renvoie 4.
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Au chargement de la page, demandez à l'utilisateur 
+				quel jour de la semaine il est né 
+				(en donnant un entier entre 1 et 7). L'utilisateur 
+				doit forcément donner un nombre entre 1 et 7.
+				_ s'il répond lundi, vous affichez une réponse.
+				_ s'il répond mardi, mercredi ou jeudi; vous 
+				affichez une autre réponse.
+				_ s'il répond vendredi, vous affichez une 
+				troisième réponse.
+				_ s'il répond samedi ou dimanche, vous affichez 
+				une quatrième réponse.
+			*/
+			let lancement = function(question1, question2) {
+				let reponse = '';
+				let birthDay = prompt(question1);
+				while (birthDay > 7 || birthDay < 1 || birthDay == null || birthDay == '' || isNaN(birthDay)) {
+					birthDay = prompt(question2);
+				};
+				birthDay = parseInt(birthDay);
+				
+				switch(birthDay) {
+					case 1:
+						reponse = alert(`Vous êtes né un lundi... ouais je sais, j'suis un génie.`);
+					break;
+					case 2:
+					case 3:
+					case 4:
+							reponse = alert(`Vous êtes né entre mardi et jeudi. Les pires jours de la semaine, sérieux...`);
+					break;		
+					case 5:
+						reponse = alert(`Vous êtes né un vendredi !On sent la personne qui aime l'apéro !`);
+					break;
+					case 6:
+					case 7:
+							reponse = alert(`Vous êtes né un samedi ou un dimanche : bravo ! vous pouvez travailler à La Poste !`);
+					break;
+					default:
+						reponse = alert(`PROBLEME! WARNING!`);
+					}
+				}
+				lancement(`Entrez un chiffre entre 1 et 7 :`, `Un chiffre entre 1 et 7, c'est quand même pas sorcier, si ?`);
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

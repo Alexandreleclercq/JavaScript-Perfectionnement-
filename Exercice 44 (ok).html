@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 44</title>
+		<script type="text/javascript">
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				L'instruction if/else permet seulement de 
+				prendre deux cas en compte pour une expression. 
+				En revanche; L'instruction switch permet d'évaluer 
+				une expression selon un nombre de cas non limité.
+
+				Cette instruction s'écrit de la façon suivante :
+				switch (expression) {
+				  case valeur1:
+					// Instruction s'exécutant lorsque l'expression 
+					correspond à valeur1
+					instructions1;
+					break;
+				  case valeur2:
+					// Instruction s'exécutant lorsque l'expression 
+					correspond à valeur2
+					instructions 2;
+					break;
+				  ...
+				  default:
+					// Instructions quand aucune des valeurs ne 
+					correspond instructions_par_defaut;
+				}
+
+				Le break à la fin d'une instruction n'est pas 
+				obligatoire, mais il est fortement recommandé. 
+				Ainsi, seules les instructions correspondant à 
+				cette instruction seront exécutés.
+				Le cas par défaut (default) est également optionnel.
+			*/
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Reprenez l'exercice précédent en remplaçant les instructions if/else par un switch.
+			*/
+			let lancement = function(question1, question2) {
+				let reponse = '';
+				let birthDay = prompt(question1);
+				while (birthDay > 7 || birthDay < 1 || birthDay == null || birthDay == '' || isNaN(birthDay)) {
+					birthDay = prompt(question2);
+				};
+				birthDay = parseInt(birthDay);
+				
+				switch(birthDay) {
+					case 1:
+						reponse = alert(`Vous êtes né un lundi... ouais je sais, j'suis un génie.`);
+					break;
+					case 2:
+					case 3:
+					case 4:
+							reponse = alert(`Vous êtes né entre mardi et jeudi. Les pires jours de la semaine, sérieux...`);
+					break;		
+					case 5:
+						reponse = alert(`Vous êtes né un vendredi !On sent la personne qui aime l'apéro !`);
+					break;
+					case 6:
+					case 7:
+							reponse = alert(`Vous êtes né un samedi ou un dimanche : bravo ! vous pouvez travailler à La Poste !`);
+					break;
+					default:
+						reponse = alert(`PROBLEME! WARNING!`);
+					}
+				}
+				lancement(`Entrez un chiffre entre 1 et 7 :`, `Un chiffre entre 1 et 7, c'est quand même pas sorcier, si ?`);
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>
